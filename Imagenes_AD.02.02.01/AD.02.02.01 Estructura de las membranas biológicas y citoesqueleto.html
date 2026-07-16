@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AD.02.02.01 Estructura de las membranas biológicas y citoesqueleto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* =========================================
+   1. REGLAS GLOBALES Y DE SEGURIDAD (MOODLE)
+   ========================================= */
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+/* Red de seguridad global para todas las imágenes */
+img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+}
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+ul { margin-bottom: 15px; }
+li { margin-bottom: 8px; }
+.highlight {
+    color: #166049; /* Color oficial Manual 2025 */
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+/* =========================================
+   2. TIPOGRAFÍAS Y TÍTULOS
+   ========================================= */
+h1, h2, h3 {
+    color: #166049; /* Color oficial Manual 2025 */
+    text-transform: uppercase;
+    text-align: left;
+}
+h1 {
+    font-size: 24px;
+    border-left: 10px solid #166049;
+    padding-left: 15px;
+}
+h2 {
+    font-size: 20px;
+    margin-top: 30px;
+}
+h3 {
+    font-size: 18px;
+    margin-top: 25px;
+}
+
+/* =========================================
+   3. CONTENEDORES DE IMÁGENES Y ENCABEZADOS
+   ========================================= */
+header {
+    border-bottom: 3px solid #166049;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+.logo-placeholder {
+    width: 500px;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px auto;
+}
+.logo-placeholder img {
+    max-width: 200%;
+    max-height: 200%;
+    object-fit: contain;
+}
+/* Clase Moodle que estandariza las imágenes en celulares */
+.contenedor-imagen-moodle {
+    width: 100%;
+    max-width: 750px;
+    margin: 25px auto;
+    padding: 0;
+    text-align: center;
+}
+.contenedor-imagen {
+    width: 90%;
+    max-width: 100%; 
+    margin: 20px auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 10px;
+    overflow: hidden;
+}
+.contenedor-imagen img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: zoom-in;
+    transition: transform 0.2s ease;
+}
+.contenedor-imagen img:hover {
+    transform: scale(1.02);
+}
+.pie-imagen {
+    font-size: 13px;
+    color: #444;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+/* =========================================
+   4. ÍNDICE DE CONTENIDOS
+   ========================================= */
+.contenedor-indice {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #166049;
+    border-radius: 8px;
+    padding: 25px;
+    margin: 30px auto;
+    max-width: 900px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.titulo-indice {
+    color: #166049;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 8px;
+}
+.lista-indice {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+.lista-indice li { margin-bottom: 12px; font-size: 15px; }
+.lista-indice li:last-child { margin-bottom: 0; }
+.enlace-indice {
+    color: #334155;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+.enlace-indice:hover {
+    color: #166049;
+    font-weight: bold;
+    transform: translateX(4px);
+}
+
+/* =========================================
+   5. CUESTIONARIO Y ACTIVIDADES
+   ========================================= */
+.actividad-box {
+    border: 2px solid #166049;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+}
+.opcion-btn {
+    display: block;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 8px 0;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.2s ease;
+}
+.opcion-btn:hover {
+    background-color: #D2DE8C; /* Color secundario claro oficial */
+    border-color: #166049;
+}
+.feedback-box {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+    font-weight: bold;
+}
+.feedback-box.correct {
+    background-color: #D2DE8C; /* Color secundario oficial */
+    color: #124A38;
+    border-left: 4px solid #124A38;
+}
+.feedback-box.incorrect {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border-left: 4px solid #b91c1c;
+}
+
+/* =========================================
+   6. VENTANAS EMERGENTES (MODALES Y LIGHTBOX)
+   ========================================= */
+.palabra-definible {
+    color: #166049;
+    font-weight: bold;
+    border-bottom: 2px dashed #166049;
+    cursor: help;
+    padding: 0 2px;
+}
+.palabra-definible:hover {
+    background-color: #D2DE8C;
+    border-radius: 3px;
+}
+#contenedor-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); 
+}
+.modal-contenido {
+    background-color: #fcfdf5; 
+    margin: 15% auto; 
+    padding: 20px; 
+    border: 2px solid #166049; 
+    width: 80%; 
+    max-width: 500px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+    position: relative; 
+}
+.modal-contenido h4 {
+    color: #166049; 
+    margin-top: 0; 
+    text-transform: none;
+}
+.boton-cerrar {
+    color: #aaa; 
+    position: absolute; 
+    top: 10px; 
+    right: 15px; 
+    font-size: 28px; 
+    font-weight: bold; 
+    cursor: pointer;
+}
+.boton-cerrar:hover, .boton-cerrar:focus {
+    color: #166049; 
+    text-decoration: none; 
+}
+
+/* Lightbox de imágenes */
+.lightbox-overlay {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0;
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.85); 
+    align-items: center; 
+    justify-content: center; 
+    cursor: zoom-out;
+}
+.lightbox-imagen-ampliada {
+    max-width: 90%; 
+    max-height: 90%; 
+    border: 3px solid #fff; 
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); 
+    animation: efectoZoom 0.2s ease-out; 
+}
+@keyframes efectoZoom {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* =========================================
+   7. CRÉDITOS Y REFERENCIAS
+   ========================================= */
+.reference-section {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+}
+footer, .pie-pagina-clave {
+    border-top: 3px solid #166049; 
+    margin-top: 50px; 
+    margin-bottom: 10px;
+    padding-top: 15px; 
+    text-align: right; 
+    font-size: 14px; 
+    color: #444; 
+    line-height: 1.5; 
+}
+.clave-asignatura {
+    font-weight: bold; 
+    color: #166049; 
+    font-size: 16px;
+}
+.contenedor-creditos {
+    max-width: 808px; 
+    margin: 42px auto 17px auto; 
+    background-color: #ffffff; 
+    border: 1px solid #e2e8f0;
+    border-radius: 7px; 
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.02); 
+    overflow: hidden; 
+}
+.encabezado-creditos {
+    background-color: #166049; 
+    color: #ffffff;
+    padding: 13px 17px; 
+    margin: 0; 
+    font-size: 13.5px; 
+    text-transform: uppercase; 
+    letter-spacing: 0.4px; 
+    font-weight: bold; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px;
+}
+.tabla-creditos {
+    width: 100%; 
+    border-collapse: collapse; 
+    font-size: 12px; 
+}
+.tabla-creditos tr { border-bottom: 1px solid #e2e8f0; }
+.tabla-creditos tr:last-child { border-bottom: none; }
+.col-categoria {
+    width: 30%; 
+    background-color: #f8fafc; 
+    padding: 13px 17px; 
+    font-weight: bold; 
+    color: #334155; 
+    border-right: 1px solid #e2e8f0;
+}
+.col-nombres { padding: 13px 17px; color: #475569; }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo-placeholder" style="width: 100%; margin: 0; padding: 0;">
+            <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/Imagenes_AD.02.02.01/ENCABEZADO%20DOCUMENTOS.png?raw=true" style="width: 100% !important; height: auto; display: block; object-fit: contain;" 
+                 alt="Banner de encabezado institucional">
+        </div>
+        <h1>Estructura de las membranas biológicas y citoesqueleto</h1>
+        <p><strong>Asignatura:</strong> Biología y Fisiología Celular<br>
+           <strong>Nomenclatura de la actividad:</strong> AD.02.02.01  Estructura de las membranas biológicas y citoesqueleto</p>
+        
+    </header>
+
+    <div class="contenedor-indice">
+        <h3 class="titulo-indice">📌 Índice</h3>
+        <ul class="lista-indice">
+            <li><a href="#objetivo" class="enlace-indice">Objetivo</a></li>
+            <li><a href="#introduccion" class="enlace-indice">Introducción</a></li>
+            <li><a href="#mosaico" class="enlace-indice">1. Modelo del mosaico fluido y bicapa lipídica</a></li>
+            <li><a href="#colesterol" class="enlace-indice">2. Composición química: Colesterol y estabilidad</a></li>
+            <ul class="sublista-indice">
+                <li><a href="#regulacion" class="enlace-indice">2.1 Regulación de la fluidez</a></li>
+                <li><a href="#precursor" class="enlace-indice">2.2 Precursor y transporte</a></li>
+                
+            </ul>
+            <li><a href="#funciones" class="enlace-indice">3. Proteínas de membrana: Clasificación y funciones clave</a></li>
+            <ul class="sublista-indice">
+                <li><a href="#trabajo" class="enlace-indice">3.1 El trabajo de las proteínas de membrana</a></li>
+            </ul>
+            <li><a href="#membrana" class="enlace-indice">4. Funciones de la membrana plasmática</a></li>
+            <li><a href="#citoesqueleto" class="enlace-indice">5. Citoesqueleto soporte y forma</a></li>
+            <li><a href="#comprueba" class="enlace-indice">Comprueba lo aprendido</a></li>
+            <li><a href="#conclusion" class="enlace-indice">Conclusiones</a></li>
+            <li><a href="#referencias" class="enlace-indice">Referencias Bibliográficas</a></li>
+        </ul>
+    </div>
+
+    <section id="objetivo">
+        <h2>Objetivo</h2>
+        <p>El estudiante a través de un recurso que se anexa <strong>reconocerá</strong> la estructura, organización y funcionalidad de las <strong>membranas biológicas,</strong> la función de los diversos componentes del <strong>citoesqueleto,</strong> así como la comprensión de su forma, movimiento, estabilidad y comunicación que ocurre a nivel celular.</p>
+    </section>
+
+    <section id="introduccion">
+        <h2>Introducción</h2>
+        <p>La célula se encuentra separada de su entorno por la <strong>membrana plasmática,</strong> una barrera delicada pero fundamental de solo 5 a 10 nanómetros de espesor que protege el contenido interno. Complementariamente, el citoesqueleto actúa como el <strong>"sistema esquelético y muscular"</strong> de la célula, proporcionando soporte y permitiendo el movimiento organizado de sus componentes.</p>
+        <p>La membrana plasmática y el citoesqueleto constituyen un sistema dinámico que permite a la célula <strong>mantener su integridad,</strong> comunicarse con el entorno y responder a los <strong>cambios ambientales.</strong> Estos conocimientos constituyen la base para entender procesos como la señalización celular, el movimiento, la división celular y numerosas aplicaciones en biotecnología y ciencias biomédicas. </p>
+
+        <div class="contenedor-imagen-moodle">
+            <div class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/Imagenes_AD.02.02.01/Imagen_1.png?raw=true" alt="célula animal">
+                <div class="pie-imagen">
+                    <strong>Figura 1.</strong> Esquema de la célula animal y los organelos que la conforman. 
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mosaico">
+        <h2>1. Modelo del mosaico fluido y bicapa lipídica</h2>
+        <p>La membrana celular se organiza según el <span class="palabra-definible" data-def="Modelo estructural que propone que los lípidos y proteínas de la membrana se encuentran en un estado líquido-viscoso dinámico, permitiendo su desplazamiento lateral.">modelo del mosaico fluido</span>, donde los lípidos están en estado líquido. Esta <span class="palabra-definible" data-def="Estructura formada por dos capas de fosfolípidos que constituye la base de la membrana celular.">bicapa lipídica</span> se compone principalmente de fosfoglicéridos y esfingolípidos, con proteínas intercaladas y cadenas cortas de carbohidratos, llamados oligosacáridos. La fluidez es vital, permitiendo la reparación, el crecimiento y la interacción de componentes celulares.</p>
+        
+        <div class="contenedor-imagen-moodle">
+            <div class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/Imagenes_AD.02.02.01/Imagen_2.png?raw=true"" alt="Modelo del mosaico fluido de la membrana celular">
+                <div class="pie-imagen">
+                    <strong>Figura 2.</strong> Estructura del mosaico fluido y la bicapa lipídica. 
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="colesterol">
+        <h2>2. Composición química: Colesterol y estabilidad</h2>
+        <p>El <span class="palabra-definible" data-def="Lípido esteroide que regula la fluidez de la membrana plasmática, actuando como un amortiguador térmico.">colesterol</span> es esencial para la estabilidad de las membranas en células animales. </p>
+        <p>Debido a su naturaleza <strong>anfipática,</strong> se orienta con su pequeño extremo <strong>hidrófilo</strong> hacia la superficie, mientras que la parte <strong>hidrofóbica</strong> se empaca entre las colas de los fosfolípidos.</p>
+        <p>El colesterol sólo existe en las células animales, otros organismos poseen moléculas de estructura similar que pertenecen al grupo de los esteroles.</p>
+        <div class="contenedor-imagen-moodle">
+            <div class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/Imagenes_AD.02.02.01/Imagen_3.png?raw=true" alt="colesterol">
+                <div class="pie-imagen">
+                    <strong>Figura 3.</strong> <strong>A.</strong> Estructuras de las moléculas de colesterol en la membrana de la célula animal.<br>
+                    <strong>B. </strong>Estructura de esteroles en la membrana de la célula vegetal.
+                </div>
+            </div>
+        </div>
+
+        <h3 id="regulacion">2.1 Regulación de la fluidez</h3>
+        <p>Su función principal es actuar como un <strong>regulador de la fluidez;</strong> al situarse entre los fosfolípidos, impide que estos se empaqueten apretadamente, lo que incrementa la <strong>estabilidad de la bicapa</strong> y disminuye su permeabilidad. En células animales, el colesterol puede llegar a constituir hasta el <strong>50% de las moléculas lipídicas de la membrana.</strong>. </p>
+        <p>Al intercalarse entre las colas de los ácidos grasos, actúa como un <strong>amortiguador térmico,</strong> impidiendo el empaquetamiento rígido a bajas temperaturas y controlando la excesiva fluidez cuando la temperatura aumenta.</p>
+
+        <div class="contenedor-imagen-moodle">
+            <div class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/Imagenes_AD.02.02.01/Imagen_4.png?raw=true"" alt="colesterol dentro de la membrana">
+                <div class="pie-imagen">
+                    <strong>Figura 4.</strong> integración de las moléculas de colesterol en la bicapa lipídica.
+                </div>
+            </div>
+        </div>
+
+        <h3 id="precursor">2.2 Precursor y Transporte</h3>
+        <p>Más allá de la estructura, el colesterol es el precursor esencial para la <strong>síntesis de hormonas esteroideas</strong> como la <strong>testosterona</strong> y el <strong>estrógeno.</strong> En el organismo, se transporta a través de la sangre en complejos de <strong>lipoproteínas de baja densidad (LDL)</strong>, las cuales son incorporadas a las células mediante endocitosis mediada por receptor para su procesamiento metabólico.</p>
+
+        <div class="contenedor-imagen-moodle">
+            <div class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/Imagenes_AD.02.02.01/Imagen_5.png?raw=true"" alt="transporte LDL">
+                <div class="pie-imagen">
+                    <strong>Figura 5.</strong> Síntesis de hormonas y su transporte por LDL.
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="funciones">
+        <h2>3. Proteínas de membrana: Clasificación y funciones clave</h2>
+        <p>Mientras que la bicapa lipídica determina la <strong>estructura básica de la barrera,</strong> las proteínas son las verdaderas <i>"máquinas moleculares"</i> encargadas de ejecutar las tareas vitales y específicas de la célula. Se clasifican principalmente según su grado de <strong>integración en la membrana:</strong></p>
+        
+        <ul>
+            <li><strong>Proteínas Integrales (Transmembranales):</strong> Penetran profundamente y cruzan la extensión hidrofóbica de la bicapa. Al ser <span class="palabra-definible" data-def="Moléculas que poseen simultáneamente una región polar (afín al agua) y una no polar (que repele el agua).">anfipáticas</span>, sus extremos asoman hacia el citosol y el espacio extracelular. Funcionan como canales o bombas de transporte continuo, así como receptores de señales externas a la célula.</li>
+            <li><strong>Proteínas Periféricas:</strong> Se localizan completamente fuera del núcleo hidrofóbico, asociándose débilmente a la superficie polar de la membrana mediante enlaces electrostáticos. Suelen actuar como enzimas temporales o puntos de anclaje para el citoesqueleto.</li>
+            <li><strong>Proteínas Ancladas a Lípidos:</strong> Se ubican en las superficies externas o internas, pero están fuertemente unidas mediante un enlace covalente a una molécula lipídica que las <i>"amarra" </i>a la membrana.</li>
+        </ul>
+
+        <h3 style="margin-top: 20px;" id="trabajo">3.1 El trabajo de las proteínas de membrana</h3>
+        <p>Estas estructuras biológicas son multifuncionales y dictan cómo la célula se relaciona con su entorno, poseen las siguientes funciones:</p>
+        <ul>
+            <li><strong>Transporte selectivo:</strong> Facilitan el paso de moléculas polares o muy grandes (como la glucosa o iones de Ca<sup>2+</sup>) que no pueden cruzar pasivamente la barrera de lípidos.</li>
+            <li><strong>Transducción de señales:</strong> Actúan como <span class="palabra-definible" data-def="Proteína de membrana que detecta señales químicas externas (como hormonas o neurotransmisores) y transmite la información al interior celular.">receptores específicos</span> que detectan mensajeros externos y desencadenan reacciones metabólicas internas sin dejar que la molécula extraña entre a la célula.</li>
+            <li><strong>Reconocimiento e identidad celular:</strong> Muchas de ellas están unidas a cadenas cortas de carbohidratos formando <span class="palabra-definible" data-def="Complejos de proteínas y carbohidratos que sobresalen al exterior de la célula, funcionando como etiquetas de identificación biológica.">glicoproteínas</span>, que actúan como "credenciales de identidad" (esto es vital para que los glóbulos blancos reconozcan a las células propias y ataquen a las bacterias invasoras).</li>
+        </ul>
+        <div class="contenedor-imagen-moodle">
+            <div class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/Imagenes_AD.02.02.01/Imagen_6.png?raw=true"" alt="proteinas">
+                <div class="pie-imagen">
+                    <strong>Figura 6.</strong> proteínas de membrana.
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <section id="membrana">
+        <h2>4. Funciones de la membrana plasmática</h2>
+        <p>Ahora que entendemos cómo los lípidos <strong>estructuran la barrera</strong> y las proteínas <strong>ejecutan el trabajo especializado,</strong> es importante analizar qué logra la membrana en su conjunto. Como un sistema integrado, cumple con funciones macroscópicas esenciales para la vida:</p>
+        <ul>
+            <li><strong>Compartimentación física:</strong> La membrana actúa como un muro fronterizo ininterrumpido. No solo envuelve a la célula entera, sino que envuelve a sus orgánulos internos, creando "compartimientos" con condiciones químicas distintas, como lo son los niveles de acidez específicos o gradientes eléctricos, sin las cuales el metabolismo colapsaría.</li>
+            <li><strong>Andamiaje bioquímico:</strong> Funciona como una "mesa de trabajo" tridimensional. Muchas enzimas no flotan al azar en el líquido celular, sino que se organizan ordenadamente sobre la membrana para trabajar en cadena y de forma ultra rápida, por ejemplo durante la síntesis de energía o <span class="palabra-definible" data-def="Proceso metabólico celular que genera energía química en forma de ATP utilizando el oxígeno y los nutrientes.">respiración celular</span>.</li>
+            <li><strong>Respuesta a señales externas (Señalización):</strong> Funciona como una "antena receptora" altamente sensible. La membrana externa está dotada de <span class="palabra-definible" data-def="Proteínas receptoras de membrana que se unen específicamente a ligandos externos para desencadenar una respuesta o cascada de señalización en el citoplasma.">receptores específicos</span> que se unen a moléculas del medio extracelular (como hormonas o factores de crecimiento). Esta interacción genera una señal interna que le dice a la célula cómo responder a su entorno, sin necesidad de que el estímulo químico original entre físicamente a la célula.</li>
+            <li><strong>Interacción y cohesión tisular:</strong> La membrana posee zonas especializadas que actúan como "velcro biológico". Estas uniones celulares permiten que las células se adhieran fuertemente entre sí para formar <span class="palabra-definible" data-def="Conjunto de células similares y conectadas que trabajan en equipo para llevar a cabo una función específica en el organismo (por ejemplo tejido muscular o epitelial).">tejidos sólidos</span>, evitando que los organismos multicelulares se desmoronen.</li>
+        </ul>
+        <div class="contenedor-imagen-moodle">
+            <div class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/Imagenes_AD.02.02.01/Imagen_7.png?raw=true"" alt="funciones">
+                <div class="pie-imagen">
+                    <strong>Figura 7.</strong> Funciones de la membrana plasmática.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="citoesqueleto">
+        <h2>5. citoesqueleto soporte y forma</h2>
+        <p>A diferencia de un esqueleto óseo rígido e inmóvil, el citoesqueleto es una <strong>red filamentosa altamente dinámica</strong> que se ensambla, desensambla y reorganiza de manera constante. Si bien funciona como un bastidor de apoyo estructural que mantiene la posición de los orgánulos, también es un sistema sumamente plástico que responde de forma inmediata a las necesidades de la célula.</p>
+        
+        <p>Este carácter <span class="palabra-definible" data-def="Propiedad de las estructuras celulares que les permite cambiar, ensamblarse y desensamblarse rápidamente en respuesta a estímulos o necesidades fisiológicas.">dinámico</span> se ejemplifica a la perfección en los <strong>microtúbulos</strong>, los cuales experimentan un proceso continuo de remodelación estructural:</p>
+        
+        <ul>
+            <li><strong>Polimerización (Extremo más / +):</strong> Es el extremo de crecimiento rápido donde se añaden activamente dímeros de tubulina, permitiendo que el microtúbulo se extienda para alcanzar nuevas zonas celulares.</li>
+            <li><strong>Despolimerización (Extremo menos / -):</strong> Es el extremo opuesto, generalmente anclado, donde los dímeros se liberan y el filamento se acorta.</li>
+        </ul>
+        
+        <p>Esta constante alternancia entre el alargamiento en el <strong>extremo más</strong> y el acortamiento en el <strong>extremo menos</strong> permite a la célula crear verdaderas "vías de tren" temporales que se construyen y destruyen según los requerimientos metabólicos, de transporte vesicular o durante la división celular.</p>
+    </section>
+
+        <div class="contenedor-imagen-moodle">
+            <div class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/Imagenes_AD.02.02.01/Imagen_8.png?raw=true"" alt="citoesqueleto">
+                <div class="pie-imagen">
+                    <strong>Figura 8.</strong>Estructura del citoesqueleto.
+                </div>
+            </div>
+        </div>
+        <p>El citoesqueleto se encuentra integrado por tres componentes:</p>
+        <ul>
+            <li><strong>Microtúbulos:</strong> Compuestos por dímeros de <span class="palabra-definible" data-def="Proteína globular que se polimeriza para formar los microtúbulos celulares.">tubulina</span>; guían el <strong>transporte vesicular</strong> y forman el <strong>huso mitótico,</strong> mediante <span class="palabra-definible" data-def="Proteínas especializadas que utilizan energía (ATP) para generar movimiento mecánico y 'caminar' sobre los filamentos del citoesqueleto.">proteínas motoras</span> como la <strong>cinesina y la dineína</strong> se desplazan sobre ellos para mover cargas como vesículas o cromosomas.</li>
+
+            <div class="contenedor-imagen-moodle">
+            <div class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/Imagenes_AD.02.02.01/Imagen_9.png?raw=true"" alt="microtubulos">
+                <div class="pie-imagen">
+                    <strong>Figura 9.</strong>Estructura Cinesinas y Dineínas.
+                </div>
+                </div>
+            </div> 
+            <div class="contenedor-imagen-moodle">
+            <div class="contenedor-imagen">
+                <img src="https://github.com/evalicea/Biologia_Fisiologia/blob/AD.02.02.01/Imagen_10.png?raw=true" alt="cinesinas">
+                <div class="pie-imagen">
+                    <strong>Figura 10.</strong>Representación biofísica de una proteína motora (cinesina) "caminando" sobre un microtúbulo. <br><em>(Fuente: Animación "The Inner Life of the Cell", XVIVO / Harvard University.)</em>
+                </div>
+                </div>
+            </div>  
+
+            <li><strong>Microfilamentos:</strong> Formados por polímeros de actina, contractilidad muscular y en la formación de pseudópodos para la fagocitosis y locomoción celular, son altamente flexibles, a diferencia de los microtúbulos que son rígidos.</li>
+
+             
+            <div class="contenedor-imagen-moodle">
+            <div class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/Imagenes_AD.02.02.01/Imagen_11.png?raw=true"" alt="actina">
+                <div class="pie-imagen">
+                    <strong>Figura 11.</strong> Estructura de los microfilamententos
+                </div>
+                </div>
+            </div>      
+            <li><strong>Filamentos intermedios:</strong> Confieren a la célula una resistencia mecánica excepcional frente a las <strong>tensiones de tracción,</strong> tiene una estructura similar a una cuerda, <strong>únicamente existen en las células animales,</strong> que carecen de pared celular. Mientras que la actina es igual en todas las células, los filamentos intermedios, <strong>varían según el tejido.</strong> En las células epiteliales y el cabello, se presentan en forma de <strong>queratina.</strong> En las células del sistema nervioso, como <strong>neurofilamentos.</strong> Y dentro del propio <strong>núcleo celular,</strong> forman <strong>la lámina nuclear,</strong> la red que protege el <strong>ADN.</strong>
+            Los filamentos intermedios son los encargados de <strong>absorber el impacto físico,</strong> anclar las estructuras internas y asegurar que la célula mantenga su integridad. Sin ellos, las células literalmente se desgarrarían bajo la presión de la vida cotidiana.
+            
+            <div class="contenedor-imagen-moodle">
+            <div class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/Imagenes_AD.02.02.01/Imagen_13.png?raw=true"" alt="filamentos intermedios">
+                <div class="pie-imagen">
+                    <strong>Figura 12.</strong> Filamentos intermedios en la célula.
+                </div>
+                </div>
+            </div>  
+ </li>
+        </ul>
+    </section>
+        
+
+    <section id="comprueba">
+        <h2>Comprueba lo aprendido</h2>
+        <p>Evalúa tus conocimientos sobre las membranas biológicas y el citoesqueleto seleccionando la respuesta correcta:</p>
+
+        <div class="actividad-box">
+            <h3 style="margin-top:0;">Pregunta 1:</h3>
+            <p>¿Qué función principal desempeña el colesterol en la membrana plasmática de las células animales?</p>
+            <button class="opcion-btn" onclick="checkAnswer(1, false, 'Incorrecto. La síntesis de ATP ocurre en las mitocondrias, no en la membrana mediada por colesterol.')">A) Participar activamente en la cadena respiratoria celular para sintetizar ATP.</button>
+            <button class="opcion-btn" onclick="checkAnswer(1, true, '¡Correcto! El colesterol funciona como un amortiguador bidireccional, regulando la fluidez según la temperatura.')">B) Regular la fluidez de la membrana actuando como un amortiguador térmico.</button>
+            <button class="opcion-btn" onclick="checkAnswer(1, false, 'Incorrecto. El paso inespecífico de agua es regulado por canales de acuaporinas, no por colesterol.')">C) Permitir el paso inespecífico de agua al disolver su capa hidrofóbica.</button>
+            <div id="feedback-1" class="feedback-box"></div>
+        </div>
+
+        <div class="actividad-box">
+            <h3 style="margin-top:0;">Pregunta 2:</h3>
+            <p>Componente del citoesqueleto compuesto por subunidades de tubulina, indispensable para la movilidad flagelar y el huso mitótico:</p>
+            <button class="opcion-btn" onclick="checkAnswer(2, false, 'Incorrecto. Los microfilamentos están hechos de actina y controlan la contracción.')">A) Microfilamentos</button>
+            <button class="opcion-btn" onclick="checkAnswer(2, false, 'Incorrecto. Los filamentos intermedios están compuestos por proteínas como queratina y dan soporte mecánico.')">B) Filamentos intermedios</button>
+            <button class="opcion-btn" onclick="checkAnswer(2, true, '¡Correcto! Los microtúbulos están compuestos de tubulina y actúan como carriles de transporte celular.')">C) Microtúbulos</button>
+            <div id="feedback-2" class="feedback-box"></div>
+        </div>
+    </section>
+
+    <section id="conclusion">
+        <h2> Conclusiones </h2>
+            <p> la membrana plasmática y el citoesqueleto no son estructuras estáticas, sino <strong>sistemas dinámicos</strong> e integrados que definen la identidad y funcionalidad de la célula.
+                Mientras la membrana actúa como una <strong>barrera selectiva, sitio de actividades bioquímicas y medio esencial para la comunicación celular,</strong> el citoesqueleto <strong>proporciona el apoyo estructural y la maquinaria necesaria para el movimiento de organelos y la estabilidad mecánica.</strong>
+            </p>
+            <p>Para <strong>los estudiantes en biotecnología,</strong> comprender esta interrelación es fundamental, ya que constituye <strong>la base molecular</strong> para el diseño de fármacos, el estudio de patologías celulares y la optimización de procesos biotecnológicos a escala microscópica, entre otras.
+
+        </p>
+        </section>
+
+    <section id="referencias" class="reference-section">
+        <h2>Referencias Bibliográficas</h2>
+        <ul>
+            <li><strong>Alberts, B., Bray, D., & Hopkin, K. </strong>(2011). <i>Introducción a la biología celular</i> (3ª ed.). México: Médica Panamericana.</li>
+            <li><strong>Audesirk, T., Audesirk, G., & Byers, B. E. (2008). </strong><i>Biología: La vida en la Tierra</i> (8ª ed.). México: Prentice Hall.</li>
+            <li><strong>Karp, G. </strong>(2014). <i>Biología celular y molecular: Conceptos y experimentos</i> (7ª ed.). México: McGraw Hill.</li>
+            <li><strong>Lodish, H., Berk, A., Matsudaira, P., Kaiser, C. A., Krieger, M., & Scott, M. P.</strong> (2005). <i>Biología celular y molecular</i> (5ª ed.). México: Editorial Médica Panamericana.</li>
+            <li><strong>XVIVO Scientific Animation.</strong> (2006). <i>The inner life of the cell</i> [Video]. XVIVO. https://xvivo.com/examples/the-inner-life-of-the-cell/</li>
+        </ul>
+    </section>
+
+    <div class="contenedor-creditos-moodle" style="text-align: center; margin: 30px auto; width: 100%;">
+    <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/Imagenes_AD.02.02.01/creditos.png?raw=true"" 
+         alt="Créditos Institucionales" 
+         style="max-width: 100%; width: 1000px; height: auto; display: block; margin: 0 auto;">
+</div>
+
+   
+    <footer>
+        <div class="clave-asignatura">Clave de la asignatura: E-BYFC-1</div>
+        <div>V1/Enero2026</div>
+        
+    </footer>
+
+</div> <div id="contenedor-modal">
+    <div class="modal-contenido">
+        <span class="boton-cerrar" id="btn-cerrar-modal">&times;</span>
+        <h4 id="titulo-definicion">Término</h4>
+        <p id="texto-definicion">Definición de la palabra clave...</p>
+    </div>
+</div>
+
+<div id="lightbox-visor" class="lightbox-overlay">
+    <img id="imagen-maximizada" class="lightbox-imagen-ampliada" src="" alt="Vista ampliada">
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        /* --- Lógica de la Ventana Modal para Glosario --- */
+        const modalDef = document.getElementById('contenedor-modal');
+        const tituloDef = document.getElementById('titulo-definicion');
+        const textoDef = document.getElementById('texto-definicion');
+        const btnCerrarDef = document.getElementById('btn-cerrar-modal');
+
+        document.querySelectorAll('.palabra-definible').forEach(elemento => {
+            elemento.addEventListener('click', (e) => {
+                const definicion = e.target.getAttribute('data-def');
+                if (definicion) {
+                    tituloDef.innerText = e.target.innerText; 
+                    textoDef.innerText = definicion;
+                    modalDef.style.display = 'block'; 
+                }
+            });
+        });
+
+        if (btnCerrarDef) {
+            btnCerrarDef.addEventListener('click', () => { modalDef.style.display = 'none'; });
+        }
+        
+        window.addEventListener('click', (e) => {
+            if (e.target == modalDef) { modalDef.style.display = 'none'; }
+        });
+
+        /* --- Lógica de Ampliación de Imágenes (Lightbox) --- */
+        const visorLightbox = document.getElementById('lightbox-visor');
+        const imagenMaximizada = document.getElementById('imagen-maximizada');
+        const todasLasImagenes = document.querySelectorAll('.contenedor-imagen img');
+
+        if (visorLightbox && imagenMaximizada) {
+            todasLasImagenes.forEach(img => {
+                img.addEventListener('click', () => {
+                    imagenMaximizada.src = img.src; 
+                    visorLightbox.style.display = 'flex'; 
+                });
+            });
+            visorLightbox.addEventListener('click', () => {
+                visorLightbox.style.display = 'none';
+            });
+        }
+    });
+
+    /* --- Lógica de la Actividad Comprueba lo Aprendido --- */
+    function checkAnswer(questionNum, isCorrect, feedbackText) {
+        const fbBox = document.getElementById('feedback-' + questionNum);
+        fbBox.innerHTML = feedbackText;
+        fbBox.style.display = 'block';
+        
+        if (isCorrect) {
+            fbBox.className = 'feedback-box correct';
+            
+            // Lanzar confeti con los colores institucionales
+            confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#006D51', '#192A47', '#FFD700']
+            });
+        } else {
+            fbBox.className = 'feedback-box incorrect';
+        }
+    }
+</script>
+
+</body>
+</html>
