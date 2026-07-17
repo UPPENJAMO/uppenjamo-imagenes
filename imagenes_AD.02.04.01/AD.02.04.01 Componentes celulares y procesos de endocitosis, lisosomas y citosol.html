@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AD.02.04.01 Componentes celulares, endocitosis, lisosomas y citosol</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Colores oficiales - Manual Septiembre 2025 */
+            --primario-oscuro: #166049;
+            --acento: #D2DE8C;
+            --texto-contraste: #124A38;
+            --gris-fondo: #f8f9fa;
+            --texto-oscuro: #333333;
+        }
+
+        body {
+            /* Tipografía oficial */
+            font-family: 'Montserrat', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--texto-oscuro);
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+
+        header h1 {
+            color: var(--primario-oscuro);
+            font-size: 26px;
+            border-bottom: 3px solid var(--primario-oscuro);
+            padding-bottom: 15px;
+            margin-top: 20px;
+            text-transform: uppercase; /* Regla de mayúsculas del manual */
+        }
+
+        /* Índice Informativo */
+        .contenedor-indice {
+            background-color: var(--gris-fondo);
+            border-left: 5px solid var(--primario-oscuro);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .titulo-indice {
+            margin: 0 0 10px 0;
+            color: var(--primario-oscuro);
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        .lista-indice {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .lista-indice li {
+            margin-bottom: 8px;
+        }
+        .enlace-indice {
+            color: var(--texto-contraste);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .enlace-indice:hover {
+            color: var(--primario-oscuro);
+            text-decoration: underline;
+        }
+
+        /* Secciones del Contenido */
+        section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: var(--primario-oscuro);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            font-size: 22px;
+            text-transform: uppercase; /* Regla de mayúsculas del manual */
+        }
+        h3 {
+            color: var(--texto-contraste);
+            font-size: 18px;
+        }
+
+        /* Palabras clave interactivas */
+        .concepto-clave {
+            color: var(--primario-oscuro);
+            font-weight: bold;
+            border-bottom: 2px dashed var(--primario-oscuro);
+            cursor: pointer;
+            padding-bottom: 1px;
+            transition: background-color 0.2s;
+        }
+        .concepto-clave:hover {
+            background-color: var(--acento);
+        }
+
+        /* Contenedores de Imágenes Protegidas */
+        .contenedor-imagen-moodle {
+            text-align: center;
+            margin: 30px auto;
+            width: 100%;
+        }
+        .contenedor-imagen {
+            display: block;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        .pie-imagen {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 13px;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        /* Cajas de Alerta / Patologías (Mantiene colores de alerta semánticos) */
+        .caja-patologia {
+            background-color: #fff5f5;
+            border-left: 5px solid #de3545;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .caja-patologia h4 {
+            color: #de3545;
+            margin: 0 0 10px 0;
+            font-size: 16px;
+        }
+
+        /* Actividad Interactiva */
+        .actividad-box {
+            background-color: #f9fbf9;
+            border: 2px solid var(--primario-oscuro);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 35px 0;
+        }
+        .opcion-btn {
+            display: block;
+            width: 100%;
+            background: #fff;
+            border: 1px solid #ccd0d4;
+            padding: 12px;
+            margin: 10px 0;
+            text-align: left;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+        .opcion-btn:hover {
+            background-color: var(--acento);
+            border-color: var(--primario-oscuro);
+        }
+        .feedback-actividad {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        /* Tabla de Créditos */
+        .tabla-creditos {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            font-size: 13px;
+        }
+        .tabla-creditos th, .tabla-creditos td {
+            border: 1px solid #dcdcdc;
+            padding: 10px;
+            text-align: left;
+        }
+        .tabla-creditos th {
+            background-color: var(--primario-oscuro);
+            color: white;
+            text-transform: uppercase;
+        }
+
+        /* Modal para Glosario Emergente */
+        .modal-oculto {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-contenido {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            max-width: 450px;
+            width: 90%;
+            text-align: left;
+            position: relative;
+            border: 2px solid var(--primario-oscuro);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .boton-cerrar {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #aaa;
+        }
+        .boton-cerrar:hover { color: var(--primario-oscuro); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo-placeholder" style="width: 100%; margin: 0; padding: 0;">
+            <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/Imagenes_AD.02.02.01/ENCABEZADO%20DOCUMENTOS.png?raw=true" 
+                 style="width: 100%; height: auto; display: block; object-fit: contain;" 
+                 alt="Banner de encabezado institucional">
+        </div>   
+        <h1>Componentes celulares, endocitosis, lisosomas y citosol</h1>
+        <p><strong>Asignatura:</strong> Biología y Fisiología Celular<br>
+           <strong>Nomenclatura de la actividad:</strong> AD.02.04.01 Componentes celulares, endocitosis, lisosomas y citosol</p>
+    </header>
+
+    <nav class="contenedor-indice">
+        <h3 class="titulo-indice">📌 Índice de Contenidos</h3>
+        <ul class="lista-indice">
+            <li><a href="#objetivo" class="enlace-indice">Objetivo</a></li>
+            <li><a href="#introduccion" class="enlace-indice">Introducción</a></li>
+            
+            <li><a href="#citosol" class="enlace-indice">1. El citosol y el entorno intracelular</a></li>
+            <li><a href="#endocitosis" class="enlace-indice">2. Mecanismo de endocitosis y tráfico vesicular</a></li>
+            <li><a href="#endosomas" class="enlace-indice">2.1 El papel de los endosomas 
+            <li><a href="#lisosomas" class="enlace-indice">3. Fisiología de los lisosomas y autofagia</a></li>
+            <li><a href="#autofagia" class="enlace-indice">3.1 Autofagia: El reciclaje celular
+            <li><a href="#exocitosis" class="enlace-indice">4. Exocitosis y secreción</a></li>
+            <li><a href="#patologias" class="enlace-indice">5. Patologías asociadas al fallo lisosómico</a></li>
+            <li><a href="#peroxisomas" class="enlace-indice">6. Peroxisomas: Centros de detoxificación molecular</a></li>   
+            <li><a href="#vacuolas-almacenamiento" class="enlace-indice">7. Vacuolas: Los compartimentos de almacenamiento y presión   
+            <li><a href="#actividad" class="enlace-indice">Comprueba lo aprendido </a></li>
+            <li><a href="#conclusion" class="enlace-indice">Conclusión</a></li>
+            <li><a href="#referencias" class="enlace-indice">Referencias</a></li>
+        </ul>
+    </nav>
+
+    <section id="objetivo">
+        <h2>Objetivo</h2>
+        <p>El estudiante a través de un recurso <strong>identificará</strong> los componentes celulares y el proceso de endocitosis mediado por lisosomas para el estudio de la organización y estructura general de la célula.</p>
+    </section>
+
+    <section id="introduccion">
+        <h2>Introducción</h2>
+        <p>El interior celular no es un espacio estático; es un <strong>entorno dinámico</strong> donde el citosol sirve de escenario para <strong>múltiples vías metabólicas,</strong> mientras que la membrana plasmática y los lisosomas coordinan el <strong>transporte intracelular</strong> mediante la entrada y degradación de materiales para mantener la <strong>integridad biológica.</strong></p>
+        <p>El <strong>transporte intracelular</strong> permite a las células <strong>captar nutrientes, eliminar desechos y reciclar componentes.</strong> El análisis de procesos como la <strong>fagocitosis y la autofagia</strong> evidencia la importancia de estos sistemas en la <strong>defensa, renovación y supervivencia celular.</strong></p>
+        <p>Estos conocimientos también ayudan a explicar el origen de diversas <strong>patologías</strong> asociadas con alteraciones del <strong>sistema lisosómico</strong> y su impacto en la salud humana. </p>
+    </section>
+
+      
+
+    <section id="citosol">
+        <h2>1. El Citosol y el Entorno Intracelular</h2>        
+        <p>El <span class="concepto-clave" onclick="abrirModal('Citosol', 'Solución acuosa concentrada que llena el citoplasma celular, rica en enzimas, iones, aminoácidos y carbohidratos, donde ocurren importantes vías metabólicas como la glucólisis.')">citosol</span> es la <strong>porción fluida del citoplasma</strong> que rodea a los orgánulos. No debe visualizarse como agua simple; es una <span class="concepto-clave" onclick="abrirModal('Solución coloidal', 'Mezcla en la que partículas diminutas de una sustancia (en este caso, macromoléculas como proteínas) se encuentran dispersas de manera uniforme en un medio líquido, adquiriendo una consistencia viscosa o de gel sin llegar a sedimentar.')">solución coloidal acuosa</span> rica en proteínas e iones. Este espacio es vital para la <strong>síntesis proteica</strong> en los ribosomas libres y el <strong>desarrollo de rutas metabólicas</strong> fundamentales como la <strong>glucólisis.</strong></p>
+        <div class="contenedor-imagen-moodle">
+            <figure class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/imagenes_AD.02.04.01/Imagen_4.png?raw=true" 
+                     alt="citosol" 
+                     style="max-width: 100%; width: 650px; height: auto; display: block; margin: 0 auto;">
+                <figcaption class="pie-imagen">
+                    <strong>Figura 1.</strong> Componentes celulares, señalando con una flecha el citosol. 
+                    
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section id="endocitosis">
+        <h2>2. Mecanismos de Endocitosis y Tráfico Vesicular</h2>
+        <p>La <span class="concepto-clave" onclick="abrirModal('Endocitosis', 'Proceso celular mediante el cual la célula internaliza macromoléculas, material particulado y otras sustancias a través de la invaginación y estrangulamiento de la membrana plasmática.')">endocitosis</span> es el mecanismo que se genera en la <strong>membrana,</strong> por medio de una <strong>invaginación</strong> (Figura 5) mediante el cual la célula introduce <strong>fluidos, macromoléculas y partículas grandes</strong> a su interior a través de vesículas derivadas de la membrana plasmática. Se divide principalmente en:</p>
+        <ul>
+            <li><strong>Pinocitosis:</strong> Incorporación inespecífica de líquidos y solutos disueltos.</li>
+                        
+            <li><strong>Endocitosis mediada por receptores:</strong> Captación selectiva y concentrada de macromoléculas (ligandos) específicas que se fijan a receptores de la membrana. Este complejo se internaliza mediante la invaginación de la membrana, formando <span class="concepto-clave" onclick="abrirModal('Vesículas revestidas', 'Vesículas intracelulares recubiertas por un entramado de proteínas (como la clatrina o caveolina) que ayudan a deformar mecánicamente la membrana plasmática y a seleccionar el cargamento específico que se va a internalizar.')">vesículas revestidas</span>.</li>
+        <div class="contenedor-imagen-moodle">
+            <figure class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/imagenes_AD.02.04.01/Imagen_5.png?raw=true" 
+                     alt="endocitosis" 
+                     style="max-width: 100%; width: 650px; height: auto; display: block; margin: 0 auto;">
+                <figcaption class="pie-imagen">
+                    <strong>Figura 2.</strong> Rutas de entrada por endocitosis. 
+                    
+                </figcaption>
+            </figure>
+        </div>
+
+         <div class="contenedor-imagen-moodle">
+            <figure class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/imagenes_AD.02.04.01/Imagen_1.png?raw=true" 
+                     alt="vesiculas revestidas" 
+                     style="max-width: 100%; width: 650px; height: auto; display: block; margin: 0 auto;">
+                <figcaption class="pie-imagen">
+                    <strong>Figura 3.</strong> Son estructuras de transporte intracelular recubiertas por proteínas especializadas, como clatrina, COPI y COPII. 
+                    
+                </figcaption>
+            </figure>
+        </div>
+            <li><strong>Fagocitosis:</strong> En la fagocitosis, o <em>"células que comen",</em> en células especializadas como <strong>macrófagos y neutrófilos</strong> engullen partículas grandes o microorganismos. Este proceso es impulsado por el <strong>citoesqueleto de actina,</strong> que proyecta <em>pseudópodos</em> (pies falsos) para rodear el material y formar un fagosoma.</li>
+        <div class="contenedor-imagen-moodle">
+            <figure class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/imagenes_AD.02.04.01/Imagen_6.png?raw=true" 
+                     alt="fagocitosis" 
+                     style="max-width: 100%; width: 650px; height: auto; display: block; margin: 0 auto;">
+                <figcaption class="pie-imagen">
+                    <strong>Figura 4.</strong> Proceso de <strong>fagocitosis</strong>. 
+                    
+                </figcaption>
+            </figure>
+        </div>
+        </ul>
+
+
+
+        <h3 id="endosomas">2.1 El papel de los Endosomas</h3>
+        <p>Una vez que las vesículas se desprenden de la membrana e ingresan a la célula, se fusionan con los <strong>endosomas tempranos</strong>, situados en la periferia. Estos actúan como la principal estación de clasificación del tráfico vesicular celular, decidiendo qué componentes se reciclan de vuelta a la membrana. Posteriormente, el material destinado a la destrucción avanza hacia los <strong>endosomas tardíos</strong>, los cuales maduran progresivamente a través de la constante <span class="concepto-clave" onclick="abrirModal('Acidificación endosomal', 'Proceso bioquímico impulsado por bombas de protones que disminuyen el pH del interior del endosoma, un paso crucial para desacoplar ligandos de sus receptores y preparar el compartimento para la degradación.')">acidificación de su interior</span>, para finalmente fusionarse con los lisosomas y formar compartimentos degradativos funcionales.</p>
+        <div class="contenedor-imagen-moodle">
+            <figure class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/imagenes_AD.02.04.01/Imagen_7.png?raw=true" 
+                     alt="endosomas" 
+                     style="max-width: 100%; width: 650px; height: auto; display: block; margin: 0 auto;">
+                <figcaption class="pie-imagen">
+                    <strong>Figura 5.</strong> Endosomas</strong>. 
+                    
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section id="lisosomas">
+        <h2>3. Fisiología de los Lisosomas y Autofagia</h2>
+        <p>Los <span class="concepto-clave" onclick="abrirModal('Lisosomas', 'Orgánulos membranosos que contienen hidrolasas ácidas encargadas de la digestión intracelular de macromoléculas. Mantienen un pH interno ácido cercano a 5.0 gracias a una bomba de protones.')">lisosomas</span> son los compartimentos encargados de la digestión celular. Contienen cerca de 60 tipos de enzimas hidrolíticas (hidrolasas ácidas) que operan exclusivamente en condiciones de pH ácido (alrededor de 5.0), mantenido por bombas de protones V-ATPasa en su membrana. Su membrana está protegida de la autodigestión por proteínas altamente glucosiladas.</p>
+        <div class="contenedor-imagen-moodle">
+            <figure class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/imagenes_AD.02.04.01/Imagen_8.png?raw=true" 
+                     alt="lisosomas" 
+                     style="max-width: 100%; width: 650px; height: auto; display: block; margin: 0 auto;">
+                <figcaption class="pie-imagen">
+                    <strong>Figura 6.</strong> Lisosomas</strong>. 
+                    
+                </figcaption>
+            </figure>
+        </div>
+
+
+        <h3 id="autofagia">3.1 Autofagia: El reciclaje celular</h3>
+        <p>Cuando los orgánulos están obsoletos o la célula experimenta ayuno extremo, se activa el proceso de <span class="concepto-clave" onclick="abrirModal('Autofagia', 'Ruta de degradación lisosómica en la que la propia célula envuelve orgánulos viejos o porciones de citoplasma en una doble membrana celular para su reciclaje metabólico.')">autofagia</span>. Los componentes celulares son envueltos en un <em>autofagosoma</em>, el cual posteriormente se fusiona con un lisosoma para degradar el material y recuperar nutrientes básicos. Este mecanismo es vital para sobrevivir en condiciones de ayuno o privación de nutrientes.</p>
+        <div class="contenedor-imagen-moodle">
+            <figure class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/imagenes_AD.02.04.01/Imagen_9.png?raw=true" 
+                     alt="autofagia" 
+                     style="max-width: 100%; width: 650px; height: auto; display: block; margin: 0 auto;">
+                <figcaption class="pie-imagen">
+                    <strong>Figura 7.</strong> Proceso de autofagia</strong>. 
+                    
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section id="exocitosis">
+        <h2>4. Exocitosis y Secreción</h2>
+        <p>El proceso inverso de la endocitosis es la <strong>exocitosis,</strong> donde las vesículas se fusionan con la membrana plasmática para liberar desechos o productos útiles a otras células u órganos. La secreción constitutiva es continua, mientras que la secreción regulada (como la insulina) requiere una señal externa, comúnmente un aumento en la concentración de iones calcio (Ca<sup>+2</sup></p>
+
+      <div class="contenedor-imagen-moodle">
+            <figure class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/imagenes_AD.02.04.01/Imagen_10.png?raw=true" 
+                     alt="exocitosis" 
+                     style="max-width: 100%; width: 650px; height: auto; display: block; margin: 0 auto;">
+                <figcaption class="pie-imagen">
+                    <strong>Figura 8.</strong> Proceso de exocitosis</strong>. 
+                    
+                </figcaption>
+            </figure>
+        </div>  
+
+    <section id="patologias">
+        <h2>5. Patologías Asociadas al Fallo Lisosómico</h2>
+        <p>El correcto funcionamiento del tráfico vesicular y los lisosomas no es opcional; alteraciones mínimas en sus genes estructurales o enzimáticos conducen al desarrollo de afecciones graves del desarrollo humano.</p>
+
+        <div class="caja-patologia">
+            <h4>⚠️ Enfermedades de Depósito Lisosomal (EDL)</h4>
+            <p>Son trastornos genéticos causados por la ausencia o mal funcionamiento de una sola enzima lisosómica. Al no poder degradarse, las macromoléculas se acumulan de manera progresiva dentro de los lisosomas, intoxicando a la célula. Ejemplos de esto son la <strong>Enfermedad de Gaucher</strong> y la <strong>Enfermedad de Tay-Sachs</strong>, que dañan de forma irreversible tejidos hepáticos, óseos y del sistema nervioso central.</p>
+            <p>En la <strong>Enfermedad de Pompe,</strong> la falta de la enzima <strong>α-glucosidasa</strong> provoca la <strong>acumulación letal de glucógeno en los lisosomas.</strong> En la <strong>silicosis,</strong> Las partículas de sílice dañan la <strong>membrana lisosomal de los macrófagos,</strong> provocando liberación de enzimas y una intensa respuesta inflamatoria que conduce a <strong>fibrosis pulmonar.</strong></p>
+        </div>
+    </section>
+
+    <div class="contenedor-imagen-moodle">
+            <figure class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/imagenes_AD.02.04.01/Imagen_11.png?raw=true" 
+                     alt="pompe" 
+                     style="max-width: 100%; width: 650px; height: auto; display: block; margin: 0 auto;">
+                <figcaption class="pie-imagen">
+                    <strong>Figura 9.</strong>Patologías del sistema lisosómico</strong>. 
+                    
+                </figcaption>
+            </figure>
+        </div>  
+
+        <section id="peroxisomas">
+            <h2 id="peroxisomas">6. Peroxisomas: Centros de detoxificación molecular</h2>
+            <p>A menudo confundidos con los lisosomas por su forma esférica, los <span class="concepto-clave" onclick="abrirModal('Peroxisomas', 'Orgánulos membranosos que contienen enzimas oxidasas y catalasas, especializados en la oxidación de ácidos grasos y en la eliminación del peróxido de hidrógeno, protegiendo a la célula del daño oxidativo.')">peroxisomas</span> son orgánulos metabólicos esenciales que funcionan como <strong><i>"plantas de tratamiento de residuos tóxicos"</i>.</strong> Su rol principal no es la digestión general, sino la <strong>oxidación y neutralización </strong>de sustancias nocivas.</p>
+
+             <div class="contenedor-imagen-moodle">
+            <figure class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/imagenes_AD.02.04.01/Imagen_2.png?raw=true" 
+                     alt="peroxisomas" 
+                     style="max-width: 100%; width: 650px; height: auto; display: block; margin: 0 auto;">
+                <figcaption class="pie-imagen">
+                    <strong>Figura 10.</strong> Peroxisomas. 
+                    
+                </figcaption>
+            </figure>
+        </div>
+            
+            <p>Entre sus funciones cruciales destacan:</p>
+            <ul>
+                <li><strong>Oxidación de ácidos grasos:</strong> Rompen cadenas muy largas de ácidos grasos (lípidos) para convertirlos en fragmentos más pequeños que las mitocondrias puedan usar posteriormente para generar energía.</li>
+                <li><strong>Detoxificación celular:</strong> Eliminan compuestos tóxicos que ingresan a la célula, un proceso masivo en órganos como el hígado y los riñones. Durante este proceso se genera <span class="concepto-clave" onclick="abrirModal('Peróxido de Hidrógeno', 'Compuesto químico altamente reactivo y potencialmente dañino (agua oxigenada) producido como subproducto del metabolismo oxidativo celular.')">peróxido de hidrógeno (H₂O₂)</span>, una sustancia sumamente peligrosa.</li>
+                <li><strong>Acción de la enzima Catalasa:</strong> Para evitar que el H₂O₂ destruya la célula, los peroxisomas contienen grandes cantidades de la enzima **catalasa**, la cual divide de forma instantánea el peróxido en dos elementos completamente inofensivos: agua y oxígeno (H₂O y O₂).</li>
+            </ul>
+
+            <div class="caja-patologia">
+                <h4>⚠️ Correlación Médica: Síndrome de Zellweger</h4>
+                <p>El mal funcionamiento o la ausencia congénita de peroxisomas funcionales da lugar al <strong>Síndrome de Zellweger</strong> (trastorno del espectro de la biogénesis peroxisómica). Al <strong>no poder procesar los ácidos grasos</strong> de cadena larga ni neutralizar las toxinas, estas sustancias se acumulan masivamente en el <strong>sistema nervioso, el hígado y los riñones,</strong> provocando graves daños neurológicos, hipotonía severa y fallos sistémicos letales en los primeros meses de vida.</p>
+            </div>
+        </section>
+
+        <section id="vacuolas-almacenamiento">
+            <h2 id="vacuola">7. Vacuolas: Los compartimentos de almacenamiento y presión</h2>
+            <p>Las <span class="concepto-clave" onclick="abrirModal('Vacuolas', 'Orgánulos vesiculares rodeados por una membrana simple que almacenan agua, nutrientes, enzimas o productos de desecho, y que participan activamente en la regulación osmótica celular.')">vacuolas</span> son estructuras vesiculares cuya prominencia varía radicalmente según el tipo de organismo, funcionando como los <i><strong>"almacenes centrales de carga"</strong></i> de la célula.</p>
+            <div class="contenedor-imagen-moodle">
+            <figure class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/imagenes_AD.02.04.01/Imagen_3.png?raw=true" 
+                     alt="vacuolas" 
+                     style="max-width: 100%; width: 650px; height: auto; display: block; margin: 0 auto;">
+                <figcaption class="pie-imagen">
+                    <strong>Figura 11.</strong>Vacuola. 
+                    
+                </figcaption>
+            </figure>
+
+            <p>Sus funciones principales son altamente especializadas:</p>
+            <ul>
+                <li><strong>Reserva de sustancias:</strong> Almacenan agua, nutrientes esenciales, proteínas de reserva y, en ocasiones, pigmentos o subproductos metabólicos que la célula prefiere aislar del citosol.</li>
+                <li><strong>Degradación:</strong> En muchas células vegetales y fúngicas (levaduras), las vacuolas contienen enzimas hidrolíticas ácidas, asumiendo el rol que desempeñan los lisosomas en las células animales.</li>
+                <li><strong>Generación de Turgencia (Células Vegetales):</strong> En el reino vegetal, existe una inmensa <strong>vacuola central</strong> que puede ocupar hasta el <strong>90% del espacio interno.</strong> Al llenarse de agua, empuja al citoplasma contra la pared celular rígida, generando <span class="concepto-clave" onclick="abrirModal('Presión de Turgencia', 'Fuerza hidrostática ejercida por el contenido fluido de la vacuola central contra la pared celular, otorgándole rigidez, soporte mecánico y firmeza a las plantas.')">presión de turgencia</span>. Esta presión es el soporte mecánico que mantiene erguidas a las plantas; cuando la vacuola pierde agua, la planta se marchita.</li>
+            </ul>
+        </section>
+    <section id="actividad">
+        <h2>Comprueba lo Aprendido</h2>
+        <div class="actividad-box">
+            <h3 style="margin-top:0;">❓ Pregunta de Reflexión Científica:</h3>
+            <p>Si una célula mutante presenta una falla absoluta en sus bombas de protones ATPasas de la membrana lisosómica, impidiendo la acidificación de su interior (manteniendo un pH neutro de 7.2), ¿qué consecuencia directa sufrirá el sistema digestivo celular?</p>
+            
+            <button class="opcion-btn" onclick="evaluarRespuesta(this, 'incorrecta')">A) Los lisosomas estallarán inmediatamente liberando ácido al citosol.</button>
+            <button class="opcion-btn" onclick="evaluarRespuesta(this, 'correcta')">B) Las hidrolasas ácidas se inactivarán por completo, deteniendo la digestión de macromoléculas acumuladas.</button>
+            <button class="opcion-btn" onclick="evaluarRespuesta(this, 'incorrecta')">C) Aumentará exponencialmente la velocidad de reciclaje por autofagia celular.</button>
+            
+            <div id="feedback-pregunta" class="feedback-actividad"></div>
+        </div>
+    </section>
+
+    <section id="conclusion">
+        <h2>Conclusión</h2>
+        <p>la célula funciona como una maquinaria integrada donde el citosol proporciona el entorno dinámico necesario para la estabilidad metabólica y el inicio de la síntesis proteica. El sistema endomembranoso, a través de mecanismos de endocitosis, permite la incorporación selectiva de materiales, mientras que los lisosomas actúan como los centros especializados de digestión y reciclaje celular mediante procesos como la autofagia. Es indispensable para un estudiante en biotecnología reconocer que el tráfico de membrana y la maduración vesicular no son procesos aislados, sino que son el pilar para mantener la homeostasis celular. Cualquier alteración en esta compleja red de tráfico y limpieza interna puede derivar en patologías graves, como las enfermedades de depósito lisosomal, lo que subraya la importancia de estudiar estas interrelaciones moleculares para el desarrollo de nuevas terapias biotecnológicas y avances en la salud y calidad de vida del ser humano</p>
+        <div class="contenedor-imagen-moodle">
+            <figure class="contenedor-imagen">
+                <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/imagenes_AD.02.04.01/Imagen_12.png?raw=true" 
+                     alt="trafico" 
+                     style="max-width: 100%; width: 650px; height: auto; display: block; margin: 0 auto;">
+                <figcaption class="pie-imagen">
+                    <strong>Figura 12.</strong>Flujo endomembranal</strong>. 
+                    
+                </figcaption>
+            </figure>
+        </div> 
+    </section>
+
+    <section id="referencias">
+        <h2> Referencias Bibliográficas</h2>
+        <div style="line-height: 1.6;">
+            <p style="margin-bottom: 15px; text-indent: -20px; padding-left: 20px;">
+                <span style="font-weight: bold; color: var(--azul-institucional);">Alberts, B., Bray, D., & Hopkin, K.</span> (2011). <i>Introducción a la biología celular</i>. Médica Panamericana.
+            </p>
+            <p style="margin-bottom: 15px; text-indent: -20px; padding-left: 20px;">
+                <span style="font-weight: bold; color: var(--azul-institucional);">Gama, M. Á.</span> (2012). <i>Biología 1: Competencias, aprendizaje y vida</i>. Pearson Education.
+            </p>
+            <p style="margin-bottom: 15px; text-indent: -20px; padding-left: 20px;">
+                <span style="font-weight: bold; color: var(--azul-institucional);">Karp, G.</span> (2014). <i>Biología celular y molecular: Conceptos y experimentos</i>. McGraw Hill.
+            </p>
+            <p style="margin-bottom: 15px; text-indent: -20px; padding-left: 20px;">
+                <span style="font-weight: bold; color: var(--azul-institucional);">Luque, J. & Herráez, Á.</span> (2001). <i>Biología Molecular e Ingeniería Genética</i>. Elsevier.
+            </p>
+        </div>
+    </section>
+
+    <div style="max-width: 1000px; margin: 0 auto 15px auto;">
+            <img src="https://github.com/UPPENJAMO/uppenjamo-imagenes/blob/main/imagenes_AD.02.04.01/creditos_AD.02.04.01.png?raw=true" 
+                 alt="Créditos Institucionales Universitarios" 
+                 style="max-width: 100%; width: 1000px; height: auto; display: block; margin: 0 auto;">
+        </div>
+    <footer style="margin-top: 50px; border-top: 1px solid var(--verde-moodle); text-align: center; padding-top: 20px;">
+        <div class="pie-pagina-clave" style="text-align: right; font-size: 12px; color: #555; margin-bottom: 20px; line-height: 1.4;">
+        <strong>Clave de la asignatura:</strong> E-BYFC-1<br>
+        <span>V1/Enero2026</span>
+    </div>
+        
+    </footer>
+
+</div> <div id="contenedor-modal" class="modal-oculto">
+    <div class="modal-contenido">
+        <span class="boton-cerrar" onclick="cerrarModal()">&times;</span>
+        <h4 id="titulo-definicion" style="color: var(--azul-institucional); margin-top: 0; font-size: 18px;">Título</h4>
+        <p id="texto-definicion" style="font-size: 14px; color: #444; margin-bottom: 0;">Definición...</p>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+    // 1. Lógica de Apertura y Cierre del Glosario Emergente
+    function abrirModal(titulo, definicion) {
+        document.getElementById('titulo-definicion').innerText = titulo;
+        document.getElementById('texto-definicion').innerText = definicion;
+        
+        const modal = document.getElementById('contenedor-modal');
+        modal.style.display = "flex";
+    }
+
+    function cerrarModal() {
+        document.getElementById('contenedor-modal').style.display = "none";
+    }
+
+    // Cierra el modal si el alumno hace clic accidentalmente fuera de la cajita blanca
+    window.onclick = function(event) {
+        const modal = document.getElementById('contenedor-modal');
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // 2. Validación de Cuestionario con efecto de Confeti Institucional
+    function evaluarRespuesta(boton, estado) {
+        const fb = document.getElementById('feedback-pregunta');
+        
+        if (estado === 'correcta') {
+            fb.innerHTML = "¡Excelente deducción! Al no haber un ambiente ácido, las hidrolasas se neutralizan y pierden su capacidad catalítica, provocando que la célula acumule macromoléculas sin poder degradarlas.";
+            fb.style.color = "green";
+            
+            // Disparador de confeti con tus colores institucionales
+            confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.7 },
+                colors: ['#192A47', '#006D51', '#FFD700'] // Azul, Verde y Oro
+            });
+        } else {
+            fb.innerHTML = "Respuesta incorrecta. Analiza detenidamente: ¿Qué necesitan las hidrolasas lisosómicas para poder funcionar de manera óptima?";
+            fb.style.color = "red";
+        }
+    }
+</script>
+
+</body>
+</html>
